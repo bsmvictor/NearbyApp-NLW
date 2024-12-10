@@ -1,10 +1,3 @@
-//
-//  SplashView.swift
-//  NearbyApp NLW
-//
-//  Created by Arthur Rios on 05/11/24.
-//
-
 import Foundation
 import UIKit
 
