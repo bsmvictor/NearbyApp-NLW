@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         flowController = NearbyFlowController()
         let rootViewController = flowController?.start()
+        
         window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()
