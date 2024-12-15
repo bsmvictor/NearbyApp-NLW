@@ -49,8 +49,9 @@ Para executar o projeto, você precisará de:
 ## Como Rodar o Projeto
 
 1. Clone o repositório: ```git clone https://github.com/bsmvictor/NearbyApp-NLW ```
-2. Abra o arquivo `NearbyApp NLW.xcodeproj` no Xcode.
-3. Compile o projeto pressionando `Cmd + R`.
+2. Consumir a API, instale as dependências com `npm i` e execute a aplicação com `npm run start`.
+3. Abra o arquivo `NearbyApp NLW.xcodeproj` no Xcode.
+4. Compile o projeto pressionando `Cmd + R`.
 
 ---
 
