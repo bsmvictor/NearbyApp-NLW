@@ -2,6 +2,8 @@ import Foundation
 import UIKit
 
 class WelcomeView: UIView {
+    var didTapButton: (() -> Void?)?
+    
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "logo"))
         imageView.contentMode = .scaleAspectFit
@@ -53,6 +55,7 @@ class WelcomeView: UIView {
         button.titleLabel?.font = Typography.action
         button.setTitleColor(Colors.gray100, for: .normal)
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -107,21 +110,27 @@ class WelcomeView: UIView {
         ])
     }
     
+    @objc
+    private func didTap() {
+        didTapButton?()
+    }
+    
     private func setupTips() {
         guard let icon1 = UIImage(named: "mapIcon") else { return }
-        let mapTip = TipsView(icon: icon1, title: "Encontre estabelecimentos", description: "Veja locais perto de você que são parceiros Nearby")
+        let tip1 = TipsView(icon: icon1, title: "Encontre estabelecimentos", description: "Veja locais perto de você que são parceiros Nearby")
         
-        let qrcodeTip = TipsView(icon: UIImage(named: "qrcode") ?? UIImage(),
+        let tip2 = TipsView(icon: UIImage(named: "qrcode") ?? UIImage(),
                             title: "Ative o cupom com QR Code",
                             description: "Escaneie o código no estabelecimento para usar o benefício")
         
-        let cuponTip = TipsView(icon: UIImage(named: "ticket") ?? UIImage(),
+        let tip3 = TipsView(icon: UIImage(named: "ticket") ?? UIImage(),
                             title: "Garanta vantagens perto de você",
                             description: "Ative cupons onde estiver, em diferentes tipos de estabelecimento")
         
-        tipsStackView.addArrangedSubview(mapTip)
-        tipsStackView.addArrangedSubview(qrcodeTip)
-        tipsStackView.addArrangedSubview(cuponTip)
+        tipsStackView.addArrangedSubview(tip1)
+        tipsStackView.addArrangedSubview(tip2)
+        tipsStackView.addArrangedSubview(tip3)
     }
 }
+
 
